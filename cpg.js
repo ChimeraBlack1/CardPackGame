@@ -105,7 +105,6 @@ console.log(costOfPacks.cost);
 function returnCards () {
 
 	var tier = prompt("Which tier would you like to return...type one..two..etc...");
-	var teer = prompt("I'm lazy...gimme the tier number manually... (1,2,3 etc...)")
 
 	var toTrade = Math.floor(cards[tier] / 3);
 
@@ -114,7 +113,9 @@ function returnCards () {
 		return;
 	}
 
-	var monies = toTrade * 0.03;	
+	// Get Paid
+	var monies = toTrade * TierValue(tier);
+
 	var roundMoney = Math.round(monies *100) / 100;
 	console.log(roundMoney, " moneixisizzzz");
 
@@ -130,8 +131,48 @@ function returnCards () {
 
 };
 
+
+function TierValue (tier){
+
+	var Tval = 0;
+
+	switch(tier) {
+		case 'one':
+			Tval = 0.03;
+			break;
+		case 'two':
+			Tval = 0.06;
+			break;
+		case 'three':
+			Tval = 0.09;
+			break;
+		case 'four': 
+			Tval = 0.15;
+			break;
+		case 'five': 
+			Tval = 0.75;
+			break;
+		case 'six': 
+			Tval = 3;
+			break;
+		case 'seven': 
+			Tval = 15;
+			break
+		case 'eight':
+			Tval = 50;
+			break;
+		case 'nine':
+			Tval = 300;
+			break;
+		case 'ten':
+			Tval = 3000;	
+	}
+
+	return Tval;
+}
+
 var Player = {
-	MF: 100000.5,
+	MF: 1,
 };
 
 var Base = 600000;
@@ -239,4 +280,72 @@ var Maxed = {
 	eight: MaxRange(8),
 	nine: MaxRange(9),
 	ten: MaxRange(10),
+}
+
+var hand = {
+	one: "",
+	two: "",
+	three: "",
+	four: "",
+	five: "",
+}
+
+function changeCard() {
+	// Select slot
+	// Select substitute card from deck
+	// make the exchange
+}
+
+var deck = {
+	// list of retained cards
+		// select card and show details of selected card
+}
+
+function Auction() {
+	//open Auction house Buy / Sell tabs.
+	var html = "<button onclick='OpenBuy()'>Buy</button>";
+	    html += "<button onclick='OpenSell()'>Sell</button>";
+	    html += "<button onclick='CloseAll()'>Close</button>";
+
+	return document.getElementById("AuctionHouse").innerHTML = html;
+}
+
+function OpenBuy () {
+	// toggle buy items tab
+	var OpenA = "<div class='openBuy'></div>";
+
+	document.getElementById("OpenAuctions").innerHTML = OpenA;
+		// show details of selected item
+		// choose items from window to buy
+		// buy items
+}
+
+function OpenSell () {
+	// toggle sell items menu
+	var OpenS = "<div class='openSell'></div>";
+
+	document.getElementById("OpenAuctions").innerHTML = OpenS;
+		// choose items from deck to sell
+		// show details of selected item
+		// sell items
+			// confirm sale
+			// backend of sale
+}
+
+;
+
+function ShowDeck() {
+	// Close all other panels
+	CloseAll();
+		// open the Deck panel
+		var html = "<div class='Deck'></div>";
+			html += "<button onclick='CloseAll()'>Close</button>";
+
+		document.getElementById("Deck").innerHTML = html;
+}
+
+function CloseAll () {
+	// Close all panels
+	var CloseA = "";
+	document.getElementById("Deck").innerHTML = document.getElementById("OpenAuctions").innerHTML = document.getElementById("AuctionHouse").innerHTML = CloseA;
 }

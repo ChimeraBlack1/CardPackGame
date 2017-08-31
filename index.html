@@ -20,15 +20,15 @@
 	<span id="returnedMoney"></span>
   </div>
 
- 
-
-
   <div class="owned">Total Cards Owned: <span id="totalCards"></span> </div>
   
   <div style="height: 10px;"></div>
 
+  <button onclick="Auction()">Auction House</button>
+
   <button onclick="cardGen()">Buy Pack</button>  
   <button onclick="returnCards()">Return Cards</button>
+  <button onclick="ShowDeck()">Deck</button>
 
   <ul>
   	<li id="one"></li>
@@ -42,6 +42,10 @@
   	<li id="nine"></li>
   	<li id="ten"></li>
   </ul>
+
+  <div id="AuctionHouse"></div>
+  <div id="OpenAuctions"></div>
+  <div id="Deck"></div>
 
   <script type="text/javascript" src="cpg.js"></script>
   </body>

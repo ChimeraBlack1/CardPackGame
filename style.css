@@ -8,3 +8,29 @@
 	margin: 0 auto;
 	text-align: center;
 }
+
+.openBuy {
+	border: 1px solid #000;
+	height: 150px;
+	width: 200px;
+	margin: 2rem;
+	padding: 1rem;
+
+}
+
+.openSell {
+	border: 1px solid red;
+	height: 150px;
+	width: 200px;
+	margin: 2rem;
+	padding: 1rem;
+
+}
+
+.Deck {
+	height: 150px;
+	width: 200px;
+	border: 1px solid green;
+	margin: 2rem;
+	padding: 1rem;
+}
