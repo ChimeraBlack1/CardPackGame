@@ -1,0 +1,10 @@
+.container {
+	width: 45%;
+	text-align: center;
+	display: inline-block;
+}
+
+.owned {
+	margin: 0 auto;
+	text-align: center;
+}
