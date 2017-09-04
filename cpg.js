@@ -91,9 +91,13 @@ function updateCards (tier) {
 
 	var arrayIndex = getRandomInt(0,5);
 
+	choice = Tiers[tier];
 
+	var finalCard = choice[arrayIndex];
 
 	// assign it to the deck
+
+	console.log(finalCard);
 
 	cards.total += 1;
 	document.getElementById(tier).innerHTML = tier + " " +  cards[tier];
@@ -378,4 +382,3 @@ function getRandomInt(min, max) {
 }
 
 
-console.log(Tiers[1]);
