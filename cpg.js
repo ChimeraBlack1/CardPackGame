@@ -1,7 +1,5 @@
 // card generator function
 
-
-
 function cardGen (hand) {
 	//roll a die to determine which tier of item to drop.
 	for (i=0;i<5;i++){
@@ -56,6 +54,8 @@ function cardGen (hand) {
 
 	// update total cards owned
 	document.getElementById("totalCards").innerHTML =  cards.total;
+
+	
 }
 
 var costOfPacks = {
@@ -86,14 +86,22 @@ var cards = {
 function updateCards (tier) {
 
 	console.log("You Got a tier", tier, " Card!");
+
 	cards[tier] += 1;
+
+	var arrayIndex = getRandomInt(0,5);
+
+
+
+	// assign it to the deck
+
 	cards.total += 1;
 	document.getElementById(tier).innerHTML = tier + " " +  cards[tier];
 }
 
 function ThrowDie (min, max) {
   toRound = Math.random() * (max - min) + min;
-  return Math.round(toRound); 
+  return Math.round(toRound);
 }
 
 console.log(costOfPacks.cost);
@@ -312,9 +320,9 @@ function Auction() {
 
 function OpenBuy () {
 	// toggle buy items tab
-	var OpenA = "<div class='openBuy'></div>";
-
-	document.getElementById("OpenAuctions").innerHTML = OpenA;
+	document.getElementById("OpenAuctions").innerHTML = "<div class='openBuy'></div>";
+	
+	// fetch items from OpenAuctions Table
 		// show details of selected item
 		// choose items from window to buy
 		// buy items
@@ -332,7 +340,6 @@ function OpenSell () {
 			// backend of sale
 }
 
-;
 
 function ShowDeck() {
 	// Close all other panels
@@ -346,6 +353,29 @@ function ShowDeck() {
 
 function CloseAll () {
 	// Close all panels
-	var CloseA = "";
-	document.getElementById("Deck").innerHTML = document.getElementById("OpenAuctions").innerHTML = document.getElementById("AuctionHouse").innerHTML = CloseA;
+	document.getElementById("Deck").innerHTML = document.getElementById("OpenAuctions").innerHTML = document.getElementById("AuctionHouse").innerHTML = "";
 }
+
+
+var Tiers = {
+	one: [0.05, 0.06, 0.05, 0.04, 0.08],
+	two: [0.15, 0.16, 0.15, 0.14, 0.18],
+	three: [0.25, 0.26, 0.25, 0.24, 0.28],
+	four: [0.35, 0.46, 0.55, 0.64, 0.78],
+	five: [0.85, 0.96, 1.05, 1.04, 1.08],
+	six: [1.15, 1.16, 1.15, 1.14, 1.18],
+	seven: [1.55, 1.56, 1.54, 1.54, 1.58],
+	eight: [1.75, 1.76, 1.75, 1.74, 1.78],
+	nine: [2.05, 2.06, 2.05, 2.04, 2.08],
+	ten: [3.15, 3.16, 3.15, 3.14, 3.18],
+}
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+
+console.log(Tiers[1]);
