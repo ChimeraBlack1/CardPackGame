@@ -93,11 +93,11 @@ function updateCards (tier) {
 
 	choice = Tiers[tier];
 
+	// choose a random card from a random tier.
 	var finalCard = choice[arrayIndex];
 
 	// assign it to the deck
-
-	console.log(finalCard);
+	Deck.push(finalCard);
 
 	cards.total += 1;
 	document.getElementById(tier).innerHTML = tier + " " +  cards[tier];
@@ -308,10 +308,7 @@ function changeCard() {
 	// make the exchange
 }
 
-var deck = {
-	// list of retained cards
-		// select card and show details of selected card
-}
+var Deck = [];
 
 function Auction() {
 	//open Auction house Buy / Sell tabs.
